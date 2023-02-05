@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./scss/index.scss" />
+    <title>My library</title>
+  </head>
+  <body>
+    <div class="modal hidden">
+      <button class="modal__btn-close">
+        <svg class="svg-logo" id="close-modal">
+          <use href="#close"></use>
+        </svg>
+      </button>
+      <h2 class="modal__title">add book</h2>
+      <form action="#" method="post" class="modal__form">
+        <label for="title" class="modal__form-label">Book Title</label>
+        <input
+          type="text"
+          id="title"
+          class="modal__form__input modal__form__input-title"
+          required
+        />
+        <label for="author" class="modal__form-label">Book Author</label>
+        <input
+          type="text"
+          id="author"
+          class="modal__form__input modal__form__input-author"
+          required
+        />
+        <label for="cover" class="modal__form-label">Book Cover</label>
+        <input
+          id="cover"
+          type="file"
+          class="modal__form__input modal__form__input-cover"
+          accept=".jpg, .jpeg, .png"
+        />
+        <button type="submit" class="modal__btn-submit">Submit</button>
+      </form>
+    </div>
+    <header class="header">
+      <div class="header__links">
+        <ul class="header__links__list">
+          <li class="header__links__list-item">
+            <a href="#" class="header-link">Help Center</a>
+          </li>
+          <li class="header__links__list-item">
+            <a href="#" class="header-link">Our Support</a>
+          </li>
+        </ul>
+      </div>
+      <div class="header__acc">
+        <img src="./assets/images/img/male-acc.jpg" alt="male-image" class="header__acc-image" />
+        <p class="header__acc-name">John Doe</p>
+        <button class="header__acc-btn btn">
+          <svg id="acc-svg" class="svg-logo">
+            <use href="#arrow"></use>
+          </svg>
+        </button>
+      </div>
+    </header>
+    <main class="main">
+      <aside class="main__aside">
+        <div class="aside__btn">
+          <button class="add-book-btn">
+            <svg id="add-btn-logo" class="svg-logo">
+              <use href="#plus"></use>
+            </svg>
+            add a book
+          </button>
+        </div>
+        <nav class="aside__categories-navigation categories-navigation">
+          <ul class="categories-navigation-list">
+            <li class="categories-navigation-item">
+              <button class="categories-navigation-btn btn-reading">
+                <svg id="nav-book-logo" class="svg-logo">
+                  <use href="#book"></use></svg
+                ><span class="categories-nav-text">Now Reading</span>
+              </button>
+            </li>
+            <li class="categories-navigation-item">
+              <button class="categories-navigation-btn categories-active-btn btn-browse">
+                <svg id="browse-logo" class="svg-logo">
+                  <use href="#world"></use></svg
+                ><span class="categories-nav-text">Browse</span>
+              </button>
+            </li>
+            <li class="categories-navigation-item">
+              <button class="categories-navigation-btn btn-buy">
+                <svg class="svg-logo" id="cart-logo">
+                  <use href="#cart"></use></svg
+                ><span class="categories-nav-text">Buy Books</span>
+              </button>
+            </li>
+            <li class="categories-navigation-item">
+              <button class="categories-navigation-btn btn-favourite">
+                <svg class="svg-logo" id="star-logo">
+                  <use href="#star"></use></svg
+                ><span class="categories-nav-text">Favourite Books</span>
+              </button>
+            </li>
+            <li class="categories-navigation-item">
+              <button class="categories-navigation-btn btn-wishlist">
+                <svg class="svg-logo" id="list-logo">
+                  <use href="#list"></use>
+                </svg>
+                <span class="categories-nav-text">Wishlist</span>
+              </button>
+            </li>
+            <li class="categories-navigation-item">
+              <button class="categories-navigation-btn btn-history">
+                <svg class="svg-logo" id="history-logo">
+                  <use href="#history"></use>
+                </svg>
+                <span class="categories-nav-text">History</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+        <ul class="aside__tags-list">
+          <li class="aside__tags-item">
+            <button class="btn-tag red-marker" data-color="#e54b65">Must Read Titles</button>
+          </li>
+          <li class="aside__tags-item">
+            <button class="btn-tag yellow-marker" data-color="#ffab00">Best Of List</button>
+          </li>
+          <li class="aside__tags-item">
+            <button class="btn-tag blue-marker" data-color="#00bfdd">Classic Novels</button>
+          </li>
+          <li class="aside__tags-item">
+            <button class="btn-tag violet-marker" data-color="#7773cf">Non Fiction</button>
+          </li>
+        </ul>
+        <div class="aside__notifications">
+          <div class="notification">
+            <svg id="notification-clock" class="svg-logo">
+              <use href="#history"></use>
+            </svg>
+            <div class="notification-info">
+              You added <span class="book-title">Fight Club</span> by
+              <span class="book-author">Chuck Palahniuk</span> to your
+              <span class="saved-list">Must Read Titles</span>
+              <div class="notification-time">24 minutes ago</div>
+            </div>
+          </div>
+          <div class="notification">
+            <svg id="notification-clock" class="svg-logo">
+              <use href="#history"></use>
+            </svg>
+            <div class="notification-info">
+              You added <span class="book-title">The Trial</span> by
+              <span class="book-author">Franz Kafka</span> to your
+              <span class="saved-list">Must Read Titles</span>
+              <div class="notification-time">48 minutes ago</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+      <section class="main__section">
+        <h1 class="section__category-title">Browse Available Books</h1>
+        <div class="section__get-info">
+          <div class="filter-btns">
+            <button class="filter-btn active-filter-btn" data-func="all">All Books</button>
+            <button class="filter-btn" data-func="recentSort">Most Recent</button>
+            <button class="filter-btn" data-func="popularSort">Most Popular</button>
+            <button class="filter-btn" data-func="freeSort">Free Books</button>
+          </div>
+          <form action="" class="filter-form">
+            <input
+              type="text"
+              class="input-keywords"
+              name="keywords"
+              id="input-keywords"
+              placeholder="Enter Keywords"
+            />
+          </form>
+        </div>
+        <section class="section__books">
+          <!-- <div class="book-container">
+              <img src="" alt="" class="book-container__image" />
+              <h3 class="book-container__title"></h3>
+              <h4 class="book-container__author"></h4>
+              <div class="book-container__stats">
+                <svg id="stats-star" class="svg-logo">
+                  <use href="#star-raiting"></use>
+                </svg>
+              </div> -->
+          <!-- </div> -->
+        </section>
+      </section>
+    </main>
+    <footer class="footer">
+      <button class="btn-help btn">
+        <svg id="footer-help" class="svg-logo">
+          <use href="#help"></use>
+        </svg>
+      </button>
+      <button class="btn-settings btn">
+        <svg id="footer-settings" class="svg-logo">
+          <use href="#settings"></use>
+        </svg>
+      </button>
+    </footer>
+    <svg display="none">
+      <symbol viewBox="0 0 512 512" id="arrow">
+        <path
+          d="M256 464c114.87 0 208-93.13 208-208S370.87 48 256 48 48 141.13 48 256s93.13 208 208 208zm-96-270.63l96 96 96-96L374.63 216 256 334.63 137.37 216z"
+        />
+      </symbol>
+      <symbol viewBox="0 0 512 512" id="help">
+        <path
+          d="M288.55 150.84c-8.09-3.86-20-6-32.72-5.82-18 .22-33.13 5.2-45 14.78-23 18.48-24.55 40.37-24.77 42.8a61.69 61.69 0 00-.09 12 3 3 0 003 2.69h21.23a3 3 0 003-3A65.7 65.7 0 01214 204c0-.11 1.14-11.7 14.36-22.34 7-5.64 16.11-8.44 27.83-8.59 9.32-.11 16.93 1.47 20.34 3.09C291 183 298 192.31 298 204.57c0 18-10.9 26.23-30.18 39.18C247.08 257.68 237 275.1 237 297v11a3 3 0 003 3h22a3 3 0 003-3v-11c0-9.16 2.23-19.13 18.44-30 19.95-13.41 42.56-28.6 42.56-62.43 0-23.14-13.3-42.23-37.45-53.73z"
+          fill="none"
+        />
+        <path
+          d="M256 64C150 64 64 150 64 256s86 192 192 192 192-86 192-192S362 64 256 64zm10.44 302h-30.21a2.57 2.57 0 01-2.56-2.57v-30.2a2.57 2.57 0 012.56-2.57h30.21a2.57 2.57 0 012.56 2.57v30.2a2.57 2.57 0 01-2.56 2.57zm17-99C267.23 277.88 265 287.85 265 297v11a3 3 0 01-3 3h-22a3 3 0 01-3-3v-11c0-21.91 10.08-39.33 30.82-53.26C287.1 230.8 298 222.6 298 204.57c0-12.26-7-21.57-21.49-28.46-3.41-1.62-11-3.2-20.34-3.09-11.72.15-20.82 2.95-27.83 8.59C215.12 192.25 214 203.84 214 204a65.7 65.7 0 00-.84 10.28 3 3 0 01-3 3h-21.25a3 3 0 01-3-2.69 61.69 61.69 0 01.09-12c.22-2.43 1.8-24.32 24.77-42.8 11.91-9.58 27.06-14.56 45-14.78 12.7-.15 24.63 2 32.72 5.82 24.21 11.51 37.51 30.6 37.51 53.74 0 33.83-22.61 49.02-42.56 62.43z"
+        />
+      </symbol>
+      <symbol viewBox="0 0 512 512" id="settings">
+        <path
+          d="M256 176a80 80 0 1080 80 80.24 80.24 0 00-80-80zm172.72 80a165.53 165.53 0 01-1.64 22.34l48.69 38.12a11.59 11.59 0 012.63 14.78l-46.06 79.52a11.64 11.64 0 01-14.14 4.93l-57.25-23a176.56 176.56 0 01-38.82 22.67l-8.56 60.78a11.93 11.93 0 01-11.51 9.86h-92.12a12 12 0 01-11.51-9.53l-8.56-60.78A169.3 169.3 0 01151.05 393L93.8 416a11.64 11.64 0 01-14.14-4.92L33.6 331.57a11.59 11.59 0 012.63-14.78l48.69-38.12A174.58 174.58 0 0183.28 256a165.53 165.53 0 011.64-22.34l-48.69-38.12a11.59 11.59 0 01-2.63-14.78l46.06-79.52a11.64 11.64 0 0114.14-4.93l57.25 23a176.56 176.56 0 0138.82-22.67l8.56-60.78A11.93 11.93 0 01209.94 26h92.12a12 12 0 0111.51 9.53l8.56 60.78A169.3 169.3 0 01361 119l57.2-23a11.64 11.64 0 0114.14 4.92l46.06 79.52a11.59 11.59 0 01-2.63 14.78l-48.69 38.12a174.58 174.58 0 011.64 22.66z"
+        />
+      </symbol>
+      <symbol viewBox="0 0 60.364 60.364" id="plus">
+        <path
+          d="M54.454,23.18l-18.609-0.002L35.844,5.91C35.845,2.646,33.198,0,29.934,0c-3.263,0-5.909,2.646-5.909,5.91v17.269
+		L5.91,23.178C2.646,23.179,0,25.825,0,29.088c0.002,3.264,2.646,5.909,5.91,5.909h18.115v19.457c0,3.267,2.646,5.91,5.91,5.91
+		c3.264,0,5.909-2.646,5.91-5.908V34.997h18.611c3.262,0,5.908-2.645,5.908-5.907C60.367,25.824,57.718,23.178,54.454,23.18z"
+        />
+      </symbol>
+      <symbol id="book" viewBox="0 0 489.9 489.9">
+        <g>
+          <g>
+            <g>
+              <path
+                d="M131.75,409.1c-28.8,0-52.1,18.3-52.1,40.4c0,22.6,23.3,40.4,52.1,40.4h278.4c-22.6-24.1-22.6-56.8,0-80.9h-278.4V409.1z
+                "
+              />
+              <path
+                d="M120.15,1.9c-23.3,7-40.4,32.7-40.4,63.8v342.2c10.5-9.3,24.9-15.9,40.4-17.9V1.9z"
+              />
+              <polygon
+                points="244.95,0 244.95,99.2 204.85,73.9 164.85,99.2 164.85,0 139.95,0 139.95,388.9 410.25,388.9 410.25,0 			"
+              />
+            </g>
+          </g>
+        </g>
+      </symbol>
+      <symbol id="cart" viewBox="0 0 612.006 612.006">
+        <g>
+          <g>
+            <path
+              d="M225.71,372.743h308.2c17.543,0,26.963-18.847,31.886-35.805l46.21-216.475H147.627l46.198,216.475
+              C197.498,354.099,208.174,372.743,225.71,372.743z M485.233,317.476l31.886-150.113c1.827-8.608,10.27-14.115,18.903-12.282
+              c8.608,1.827,14.109,10.294,12.282,18.903l-31.886,150.113c-1.594,7.495-8.208,12.632-15.58,12.632
+              c-1.095,0-2.209-0.117-3.323-0.351C488.9,334.551,483.411,326.09,485.233,317.476z M405.217,319.66l10.633-150.113
+              c0.615-8.781,8.214-15.389,17.026-14.774c8.781,0.621,15.395,8.245,14.774,17.032l-10.633,150.113
+              c-0.591,8.399-7.587,14.817-15.881,14.817c-0.381,0-0.757-0.012-1.144-0.037C411.21,336.064,404.595,328.441,405.217,319.66z
+               M324.346,154.768c8.713-0.634,16.41,5.993,17.026,14.774l10.627,150.113c0.628,8.781-5.999,16.404-14.774,17.032
+              c-0.388,0.025-0.763,0.037-1.144,0.037c-8.294,0-15.291-6.418-15.881-14.817l-10.626-150.106
+              C308.944,163.019,315.565,155.389,324.346,154.768z M221.2,155.081c8.621-1.827,17.069,3.673,18.903,12.282l31.886,150.113
+              c1.828,8.608-3.667,17.075-12.288,18.903c-1.114,0.24-2.227,0.351-3.323,0.351c-7.365,0-13.986-5.138-15.58-12.632
+              l-31.886-150.113C207.085,165.369,212.586,156.909,221.2,155.081z"
+            />
+            <path
+              d="M245.88,459.608c-30.071,0-54.449,24.379-54.449,54.449c0,30.07,24.379,54.449,54.449,54.449
+              s54.449-24.379,54.449-54.449C300.33,483.986,275.951,459.608,245.88,459.608z M245.88,534.473
+              c-11.279,0-20.416-9.137-20.416-20.416c0-11.273,9.137-20.416,20.416-20.416s20.416,9.144,20.416,20.416
+              C266.303,525.336,257.159,534.473,245.88,534.473z"
+            />
+            <path
+              d="M504.517,459.608c-30.077,0-54.456,24.379-54.456,54.449c0,30.07,24.379,54.449,54.456,54.449
+              c30.071,0,54.449-24.379,54.449-54.449C558.966,483.986,534.587,459.608,504.517,459.608z M504.517,534.473
+              c-11.279,0-20.416-9.137-20.416-20.416c0-11.273,9.137-20.416,20.416-20.416c11.273,0,20.416,9.144,20.416,20.416
+              C524.939,525.336,515.789,534.473,504.517,534.473z"
+            />
+          </g>
+          <path
+            d="M586.987,437.401H174.873c-14.829,0-27.523-10.091-30.864-24.533L66.91,80.419h-48.45C8.264,80.419,0,72.155,0,61.959
+            S8.264,43.5,18.459,43.5h52.616c14.817,0,27.511,10.085,30.864,24.514l77.105,332.468h407.949c10.196,0,18.459,8.264,18.459,18.46
+            C605.447,429.143,597.189,437.401,586.987,437.401z"
+          />
+        </g>
+      </symbol>
+      <symbol id="history" viewBox="0 0 300.988 300.988">
+        <g>
+          <path
+            d="M150.494,0.001C67.511,0.001,0,67.512,0,150.495s67.511,150.493,150.494,150.493s150.494-67.511,150.494-150.493
+          S233.476,0.001,150.494,0.001z M150.494,285.987C75.782,285.987,15,225.206,15,150.495S75.782,15.001,150.494,15.001
+          s135.494,60.782,135.494,135.493S225.205,285.987,150.494,285.987z"
+          />
+          <polygon
+            points="142.994,142.995 83.148,142.995 83.148,157.995 157.994,157.995 157.994,43.883 142.994,43.883 		"
+          />
+        </g>
+      </symbol>
+      <symbol id="list" viewBox="0 0 458.18 458.18">
+        <g>
+          <path
+            d="M36.09,5.948c-18.803,0-34.052,15.248-34.052,34.051c0,18.803,15.249,34.052,34.052,34.052
+          c18.803,0,34.052-15.25,34.052-34.052C70.142,21.196,54.893,5.948,36.09,5.948z"
+          />
+          <path
+            d="M147.537,80h268.604c22.092,0,40-17.908,40-40s-17.908-40-40-40H147.537c-22.092,0-40,17.908-40,40S125.445,80,147.537,80z
+          "
+          />
+          <path
+            d="M36.09,132.008c-18.803,0-34.052,15.248-34.052,34.051s15.249,34.052,34.052,34.052c18.803,0,34.052-15.249,34.052-34.052
+          S54.893,132.008,36.09,132.008z"
+          />
+          <path
+            d="M416.142,126.06H147.537c-22.092,0-40,17.908-40,40s17.908,40,40,40h268.604c22.092,0,40-17.908,40-40
+          S438.233,126.06,416.142,126.06z"
+          />
+          <path
+            d="M36.09,258.068c-18.803,0-34.052,15.248-34.052,34.051c0,18.803,15.249,34.052,34.052,34.052
+          c18.803,0,34.052-15.249,34.052-34.052C70.142,273.316,54.893,258.068,36.09,258.068z"
+          />
+          <path
+            d="M416.142,252.119H147.537c-22.092,0-40,17.908-40,40s17.908,40,40,40h268.604c22.092,0,40-17.908,40-40
+          S438.233,252.119,416.142,252.119z"
+          />
+          <path
+            d="M36.09,384.128c-18.803,0-34.052,15.248-34.052,34.051s15.249,34.053,34.052,34.053c18.803,0,34.052-15.25,34.052-34.053
+          S54.893,384.128,36.09,384.128z"
+          />
+          <path
+            d="M416.142,378.18H147.537c-22.092,0-40,17.908-40,40s17.908,40,40,40h268.604c22.092,0,40-17.908,40-40
+          S438.233,378.18,416.142,378.18z"
+          />
+        </g>
+      </symbol>
+      <symbol id="star" viewBox="0 0 329.942 329.942">
+        <path
+          id="XMLID_16_"
+          d="M329.208,126.666c-1.765-5.431-6.459-9.389-12.109-10.209l-95.822-13.922l-42.854-86.837
+	c-2.527-5.12-7.742-8.362-13.451-8.362c-5.71,0-10.925,3.242-13.451,8.362l-42.851,86.836l-95.825,13.922
+	c-5.65,0.821-10.345,4.779-12.109,10.209c-1.764,5.431-0.293,11.392,3.796,15.377l69.339,67.582L57.496,305.07
+	c-0.965,5.628,1.348,11.315,5.967,14.671c2.613,1.899,5.708,2.865,8.818,2.865c2.387,0,4.784-0.569,6.979-1.723l85.711-45.059
+	l85.71,45.059c2.208,1.161,4.626,1.714,7.021,1.723c8.275-0.012,14.979-6.723,14.979-15c0-1.152-0.13-2.275-0.376-3.352
+	l-16.233-94.629l69.339-67.583C329.501,138.057,330.972,132.096,329.208,126.666z"
+        />
+      </symbol>
+      <symbol id="world" viewBox="0 0 428.408 428.407">
+        <path
+          d="M214.204,0c-11.75,0-23.263,0.986-34.503,2.802c4.93,1.856,11.084,2.856,19.476,2.455
+        c28.873-1.374,46.763,4.127,26.119,12.39c-20.645,8.262-16.803,17.034-7.167,17.721c9.636,0.687,32.096-9.595,39.549-0.551
+        c7.69,9.336-8.63,24.65,1.102,41.194c14.477,24.623-35.041,30.26-47.553,48.722c-12.07,17.809-18.877,36.883-5.113,62.451
+        c13.763,25.568,17,10.125,41.201,12.927c47.709,5.521,33.429,42.874,92.208,54.57c22.487,4.475,7.031,53.325-32.43,76.867
+        c-38.032,22.685-26.023,48.708-80.069,66.062c-12.988,4.169-22.869,1.775-12.818-12.675c19.495-28.022,17.803-59.255,0-73.236
+        c-17.802-13.98-37.76-17.027-32.946-38.556c4.814-21.529,23.446-29.063,24.772-48.416c1.279-18.666-28.335-82.198-65.348-69.619
+        c-21.141,7.188-62.03-19.706-59.867-54.923c2.509-40.916,33.85-47.186,26.812-71.522c-0.021-0.068,0.006-0.156,0-0.231
+        C43.333,65.396,0.003,134.722,0.003,214.207c0,118.3,95.9,214.2,214.2,214.2s214.2-95.9,214.2-214.2S332.503,0,214.204,0z"
+        />
+      </symbol>
+      <symbol viewBox="0 0 50 50" id="search">
+        <path
+          d="M 21 3 C 11.621094 3 4 10.621094 4 20 C 4 29.378906 11.621094 37 21 37 C 24.710938 37 28.140625 35.804688 30.9375 33.78125 L 44.09375 46.90625 L 46.90625 44.09375 L 33.90625 31.0625 C 36.460938 28.085938 38 24.222656 38 20 C 38 10.621094 30.378906 3 21 3 Z M 21 5 C 29.296875 5 36 11.703125 36 20 C 36 28.296875 29.296875 35 21 35 C 12.703125 35 6 28.296875 6 20 C 6 11.703125 12.703125 5 21 5 Z"
+        />
+      </symbol>
+      <symbol id="star-raiting" viewBox="0 0 36.09 36.09">
+        <path
+          d="M36.042,13.909c-0.123-0.377-0.456-0.646-0.85-0.688l-11.549-1.172L18.96,1.43c-0.16-0.36-0.519-0.596-0.915-0.596
+        s-0.755,0.234-0.915,0.598L12.446,12.05L0.899,13.221c-0.394,0.04-0.728,0.312-0.85,0.688c-0.123,0.377-0.011,0.791,0.285,1.055
+        l8.652,7.738L6.533,34.045c-0.083,0.387,0.069,0.787,0.39,1.02c0.175,0.127,0.381,0.191,0.588,0.191
+        c0.173,0,0.347-0.045,0.503-0.137l10.032-5.84l10.03,5.84c0.342,0.197,0.77,0.178,1.091-0.059c0.32-0.229,0.474-0.633,0.391-1.02
+        l-2.453-11.344l8.653-7.737C36.052,14.699,36.165,14.285,36.042,13.909z M25.336,21.598c-0.268,0.24-0.387,0.605-0.311,0.957
+        l2.097,9.695l-8.574-4.99c-0.311-0.182-0.695-0.182-1.006,0l-8.576,4.99l2.097-9.695c0.076-0.352-0.043-0.717-0.311-0.957
+        l-7.396-6.613l9.87-1.002c0.358-0.035,0.668-0.264,0.814-0.592l4.004-9.077l4.003,9.077c0.146,0.328,0.456,0.557,0.814,0.592
+        l9.87,1.002L25.336,21.598z"
+        />
+      </symbol>
+      <symbol viewBox="0 0 122.878 122.88" id="close">
+        <g>
+          <path
+            d="M1.426,8.313c-1.901-1.901-1.901-4.984,0-6.886c1.901-1.902,4.984-1.902,6.886,0l53.127,53.127l53.127-53.127 c1.901-1.902,4.984-1.902,6.887,0c1.901,1.901,1.901,4.985,0,6.886L68.324,61.439l53.128,53.128c1.901,1.901,1.901,4.984,0,6.886 c-1.902,1.902-4.985,1.902-6.887,0L61.438,68.326L8.312,121.453c-1.901,1.902-4.984,1.902-6.886,0 c-1.901-1.901-1.901-4.984,0-6.886l53.127-53.128L1.426,8.313L1.426,8.313z"
+          />
+        </g>
+      </symbol>
+    </svg>
+    <div class="overlay hidden"></div>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+.svg-logo {
+  margin: 0;
+  width: 15px;
+  height: 15px;
+  fill: #fff;
+  transition: 400ms;
+}
+
+.header {
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  height: 45px;
+  width: 100%;
+  background-color: #2f3549;
+  color: #fff;
+
+  &__links {
+    width: 200px;
+    margin: 0;
+
+    &__list {
+      padding-top: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      list-style: none;
+    }
+
+    .header-link {
+      color: #78829d;
+      text-decoration: none;
+      transition: 400ms;
+
+      &visited {
+        color: #60667e;
+        text-decoration: none;
+      }
+
+      &:hover {
+        color: #fff;
+      }
+    }
+
+
+  }
+
+  &__acc {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    width: 160px;
+    background-color: #15a3f9;
+
+    &-image {
+      margin: 0 0 0 10px;
+      width: 33px;
+      height: 33px;
+      border: solid #fff 2px;
+      border-radius: 50%;
+    }
+
+    &-name {
+      margin: 0;
+      padding: 0 0 0 10px;
+      text-align: center;
+    }
+
+    &-btn {
+      width: 40px;
+      height: 45px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+
+      &:hover #acc-svg {
+        fill: #2f3549;
+      }
+    }
+  }
+}

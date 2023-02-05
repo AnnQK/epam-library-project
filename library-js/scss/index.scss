@@ -1,0 +1,526 @@
+@import './components/modal';
+@import './components/header';
+@import './components/main';
+@import './components/footer';
+@import './components/aside';
+
+@font-face {
+  font-family: "Font awesome";
+  src: url("../assets/fonts/FontAwesome.otf");
+}
+
+@font-face {
+  font-family: "Proxima Nove Regular";
+  src: url("../assets/fonts/ProximaNovaRegular.otf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  width: 100%;
+  font-size: 13px;
+  font-family: "Proxima Nove Regular";
+}
+
+/* MODAL ADD BOOK */
+
+/* HEADER */
+
+/* MAIN */
+
+.main {
+  width: 100%;
+  margin: 0;
+  flex-grow: 1;
+  display: flex;
+}
+
+.main__aside {
+  margin: 0;
+  width: 200px;
+  background-color: #1f2537;
+}
+
+.aside__btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+  border-bottom: 5px #131724 solid;
+}
+
+.aside__btn::after {
+  position: absolute;
+  content: " ";
+  z-index: 1;
+  top: 115px;
+  left: 0px;
+  right: 0px;
+  bottom: -1px;
+  background-color: #171d2b;
+}
+
+.add-book-btn {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 160px;
+  height: 45px;
+  background-color: #f1795a;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 700;
+  font-family: "Proxima Nove Regular";
+  font-size: 13px;
+  transition: 300ms;
+}
+
+.add-book-btn:hover {
+  background-color: #c26148;
+}
+
+.aside__categories-navigation {
+  position: relative;
+  margin: 0;
+  height: 245px;
+  border-bottom: 5px #131724 solid;
+}
+
+.aside__categories-navigation::before {
+  position: absolute;
+  content: " ";
+  z-index: 1;
+  top: -1px;
+  left: 0px;
+  right: 0px;
+  bottom: 240px;
+  background-color: #77819d;
+}
+
+.aside__categories-navigation::after {
+  position: absolute;
+  content: " ";
+  z-index: 1;
+  top: 240px;
+  left: 0px;
+  right: 0px;
+  bottom: -1px;
+  background-color: #171d2b;
+}
+
+.categories-navigation-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  list-style: none;
+}
+
+.categories-navigation-item {
+  width: 100%;
+}
+
+.categories-navigation-btn {
+  padding: 12px 12px 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  font-family: "Proxima Nove Regular";
+  background-color: transparent;
+  color: #78829d;
+  font-size: 13px;
+  border: none;
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.categories-navigation-btn:hover {
+  /* background-color: #15a3f9; */
+  color: #fff;
+}
+
+.categories-navigation-list .svg-logo {
+  width: 13px;
+  height: 13px;
+  fill: #77819d;
+  stroke: #77819d;
+}
+
+.categories-navigation-btn:hover .svg-logo {
+  fill: #fff;
+}
+
+.categories-active-btn {
+  background-color: #15a3f9;
+  color: #fff;
+}
+
+.categories-active-btn .svg-logo {
+  fill: #fff;
+}
+
+.aside__tags-list {
+  position: relative;
+  padding: 20px 0 0 18px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 187px;
+  border-bottom: 5px #131724 solid;
+  list-style: none;
+}
+
+.aside__tags-list::before {
+  position: absolute;
+  content: " ";
+  z-index: 1;
+  top: -1px;
+  left: 0;
+  right: 0;
+  bottom: 182px;
+  background-color: #77819d;
+}
+
+.aside__tags-list::after {
+  position: absolute;
+  content: " ";
+  z-index: 1;
+  top: 182px;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  background-color: #171d2b;
+}
+
+.btn-tag {
+  position: relative;
+  padding: 10px;
+  width: 100%;
+  background-color: transparent;
+  color: #78829d;
+  font-family: "Proxima Nove Regular";
+  font-size: 13px;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.btn-tag::before {
+  content: "";
+  display: inline-block;
+  margin-bottom: 2px;
+  margin-right: 13px;
+  width: 5px;
+  height: 5px;
+  border-radius: 7.5px;
+  /* background-color: attr(data-color); */
+}
+
+.red-marker::before {
+  background-color: #e54b65;
+}
+
+.yellow-marker::before {
+  background-color: #ffab00;
+}
+
+.blue-marker::before {
+  background-color: #00bfdd;
+}
+
+.violet-marker::before {
+  background-color: #7773cf;
+}
+
+/* .aside__tags-item::marker {
+    color: #fff;
+} */
+
+.btn-tag:hover {
+  color: #fff;
+}
+
+.aside__notifications {
+  position: relative;
+  padding: 35px 0 0 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  height: 260px;
+  font-size: 12px;
+  color: #77819d;
+}
+
+.notification {
+  margin: 0;
+  width: 160px;
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  line-height: 18px;
+}
+
+.notification-time {
+  margin-top: 8px;
+}
+
+#notification-clock {
+  padding-bottom: 14px;
+  width: 35px;
+  height: 35px;
+  fill: #77819d;
+}
+
+.aside__notifications::before {
+  position: absolute;
+  content: " ";
+  z-index: 1;
+  top: -1px;
+  left: 0;
+  right: 0;
+  bottom: 260px;
+  background-color: #77819d;
+}
+
+.book-title,
+.book-author,
+.saved-list {
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.svg-none {
+  width: 10px;
+  height: 10px;
+}
+
+/* MAIN BOOKS SECTION */
+
+.main__section {
+  flex-grow: 1;
+}
+
+.section__category-title {
+  padding: 25px 0 0 20px;
+  height: 70px;
+  color: #444c63;
+  font-size: 22px;
+  border-bottom: 1px solid #d9dfe9;
+  background-color: #edf1f7;
+}
+
+.section__get-info {
+  padding: 1px 25px 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  border-bottom: 1px solid #d9dfe9;
+  background-color: #edf1f7;
+}
+
+.filter-btns {
+  display: flex;
+  gap: 5px;
+}
+
+.filter-btn {
+  padding: 3px 10px 3px 12px;
+  border: none;
+  background-color: transparent;
+  color: #78829d;
+  font-family: "Proxima Nove Regular";
+  font-size: 12px;
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.filter-btn:hover {
+  color: #fff;
+  background-color: #97b3cd;
+  border-radius: 15px;
+}
+
+.active-filter-btn {
+  background-color: #97b3cd;
+  color: #fff;
+  border-radius: 15px;
+}
+
+.input-keywords {
+  padding: 5px 30px 5px 17px;
+  background: url("../assets/images/img/search.png");
+  background-size: 15px;
+  background-position: bottom 5px right 14px;
+  background-repeat: no-repeat;
+  width: 400px;
+  border-radius: 15px;
+  border: 1px solid #78829d;
+}
+
+.input-keywords::placeholder {
+  color: #8c97b2;
+  font-family: "Proxima Nove Regular";
+  font-size: 13px;
+}
+
+.input-keywords:focus {
+  outline-color: #15a3f9;
+}
+
+.section__books {
+  width: calc(100vw - 250px);
+  margin: 0 auto;
+  padding: 30px 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  row-gap: 30px;
+  column-gap: 20px;
+  flex-wrap: wrap;
+  background-color: #fff;
+}
+
+.book-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  height: 350px;
+}
+
+.image-box {
+  margin: 0;
+  padding: 0;
+  height: 275px;
+  width: 200px;
+}
+
+.book-container__image {
+  height: 275px;
+  width: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.book-container__title {
+  padding-top: 0px;
+  height: 20px;
+  width: 200px;
+  overflow-y: hidden;
+  overflow-x: visible;
+  font-family: "Proxima Nove Regular";
+  font-size: 16px;
+  color: #444c63;
+  transition: 300ms;
+}
+
+.book-container__author {
+  padding-top: 2px;
+  height: 25px;
+  width: 200px;
+  overflow: hidden;
+  font-family: "Proxima Nove Regular";
+  color: #6f7d95;
+  font-size: 12px;
+}
+
+.book-container__stats {
+  display: flex;
+  height: 15px;
+  transition: 200ms;
+}
+
+.book-container__stats:hover .stats-star {
+  opacity: 1;
+}
+
+.stats-star {
+  width: 15px;
+  height: 15px;
+  fill: #ffab00;
+  opacity: 0.3;
+  cursor: pointer;
+}
+
+.stats-star:hover {
+  fill: #ffab00;
+  opacity: 1;
+}
+
+.stats-star:hover~.stats-star {
+  fill: #ffab00;
+  opacity: 0.3;
+}
+
+.active-raiting-btn {
+  fill: #ffab00;
+  opacity: 1;
+}
+
+.disable-stars {
+  pointer-events: none;
+}
+
+/* FOOTER */
+
+.footer {
+  width: 100%;
+  height: 45px;
+  background-color: #171d2b;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-help,
+.btn-settings {
+  margin: 0;
+  height: 45px;
+  width: 55px;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-help {
+  background-color: #1f2537;
+}
+
+.btn-settings {
+  background-color: #15a3f9;
+}
+
+.btn-settings:hover #footer-settings {
+  fill: #1f2537;
+}
+
+.btn-help:hover #footer-help {
+  fill: #15a3f9;
+}
+
+#footer-help {
+  width: 20px;
+  height: 20px;
+  fill: #fff;
+  transition: 400ms;
+}
