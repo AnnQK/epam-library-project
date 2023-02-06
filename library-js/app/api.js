@@ -10,3 +10,44 @@ export async function getBooks() {
     console.log(e);
   }
 }
+
+export async function searchBooks(searchValue) {
+  try {
+    const response = await fetch(`${BASE_URL}/books?search=${searchValue}`);
+    const data = await response.json();
+    const books = data.results;
+    return books;
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+export async function sortBooks(sortType = "") {
+  let option;
+  if (sortType) {
+    let option = `=${sortType}`;
+  }
+  try {
+    const response = await fetch(`${BASE_URL}/books?sort${option}`);
+    const data = await response.json();
+    const books = data.results;
+    return books;
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+export async function getFeeBooks() {
+  let option;
+  if (sortType) {
+    let option = `=${sortType}`;
+  }
+  try {
+    const response = await fetch(`${BASE_URL}/books?copyright=false`);
+    const data = await response.json();
+    const books = data.results;
+    return books;
+  } catch (e) {
+    console.log(e);
+  }
+}
