@@ -1,12 +1,9 @@
-import { options, BOOK_URL, localBooks } from "./fetchBooks";
-import debounce from "./debounce";
-
+import { getBooks } from "./api";
 // variables
 const booksContainer = document.querySelector(".section__books");
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
-const bookPlaceholder =
-  "https://galapagos-pro.com/wp-content/uploads/2021/03/book-placeholder.jpg";
+const bookPlaceholder = "https://galapagos-pro.com/wp-content/uploads/2021/03/book-placeholder.jpg";
 
 // INPUTS VARIABLES
 const searchFilter = document.querySelector(".input-keywords");
@@ -33,18 +30,6 @@ function prepareBooks(booksArr) {
     raiting: book.review.split(" ").join("")[0],
   }));
 }
-// getting books from api
-async function getBooks() {
-  try {
-    const response = await fetch(BOOK_URL, options);
-    const data = await response.json();
-    const books = data.Books;
-    await Promise.all((displayBooks = prepareBooks(books)));
-  } catch {
-    displayBooks = prepareBooks(localBooks);
-  }
-  return displayBooks;
-}
 
 // RATING STARS
 
@@ -52,9 +37,7 @@ function raiting(e) {
   if (e.target.classList.contains("raiting-btn")) {
     // find stars in clicked books container
     const stars = Array.from(
-      e.target
-        .closest(".book-container__stats")
-        .querySelectorAll(".raiting-btn")
+      e.target.closest(".book-container__stats").querySelectorAll(".raiting-btn")
     );
 
     // stars container
@@ -62,9 +45,7 @@ function raiting(e) {
     const clickedStarIdx = stars.indexOf(e.target);
     starsContainer.dataset.raiting = clickedStarIdx + 1;
     // find book in array
-    const containerTitle = Array.from(
-      starsContainer.parentElement.childNodes
-    )[3].textContent;
+    const containerTitle = Array.from(starsContainer.parentElement.childNodes)[3].textContent;
 
     // update display books array
     displayBooks.map((book) => {
@@ -102,7 +83,6 @@ function renderRaiting() {
 }
 
 // creating a container for every book
-
 function renderBooks(booksArr) {
   booksContainer.innerHTML = "";
   booksArr.map((book) =>
@@ -110,9 +90,9 @@ function renderBooks(booksArr) {
       "afterBegin",
       `<div class="book-container">
       <div class="image-box">
-      <img src="${book.image}" alt="${book.title}" class="book-container__image" /></div>
+      <img src="${book.formats["image/jpeg"]}" alt="${book.title}" class="book-container__image" /></div>
       <h3 class="book-container__title">${book.title}</h3>
-      <h4 class="book-container__author">${book.author}</h4>
+      <h4 class="book-container__author">${book.authors[0].name}</h4>
       <div class="book-container__stats" data-raiting="${book.raiting}">
         <svg id="" class="svg-logo stats-star">
           <use href="#star" class="raiting-btn"></use>
@@ -194,8 +174,8 @@ filterBtnContainer.addEventListener("click", (e) => {
   if (e.target.dataset.func) {
     const clickedBtn = e.target;
     // change visual active btn
-    Array.from(filterBtnContainer.querySelectorAll("[data-func]")).forEach(
-      (item) => item.classList.remove("active-filter-btn")
+    Array.from(filterBtnContainer.querySelectorAll("[data-func]")).forEach((item) =>
+      item.classList.remove("active-filter-btn")
     );
     clickedBtn.classList.add("active-filter-btn");
 
