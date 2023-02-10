@@ -25,7 +25,7 @@ export async function searchBooks(searchValue) {
 export async function sortBooks(sortType = "") {
   let option;
   if (sortType) {
-    let option = `=${sortType}`;
+    option = `=${sortType}`;
   }
   try {
     const response = await fetch(`${BASE_URL}/books?sort${option}`);
@@ -37,11 +37,7 @@ export async function sortBooks(sortType = "") {
   }
 }
 
-export async function getFeeBooks() {
-  let option;
-  if (sortType) {
-    let option = `=${sortType}`;
-  }
+export async function getFreeBooks() {
   try {
     const response = await fetch(`${BASE_URL}/books?copyright=false`);
     const data = await response.json();
