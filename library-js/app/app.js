@@ -1,4 +1,4 @@
-import { getBooks } from "./api";
+import { getBooks, getFreeBooks, getPopularBooks, getRecentBooks } from "./api";
 // variables
 const booksContainer = document.querySelector(".section__books");
 const modal = document.querySelector(".modal");
@@ -84,6 +84,7 @@ function renderRaiting() {
 
 // creating a container for every book
 function renderBooks(booksArr) {
+  console.log(booksArr);
   booksContainer.innerHTML = "";
   booksArr.map((book) =>
     booksContainer.insertAdjacentHTML(
@@ -164,9 +165,24 @@ function searchBook(e) {
 // SORTING BOOKS
 // sorting popular
 
-function popularSort() {
-  const filteredBooks = displayBooks.filter((item) => item.raiting === "5");
-  return renderBooks(filteredBooks);
+async function showDefaultBooks() {
+  const defaultBooks = await getBooks();
+  renderBooks(defaultBooks);
+}
+
+async function showPopularBooks() {
+  const popularBooks = await getPopularBooks();
+  renderBooks(popularBooks);
+}
+
+async function showFreeBooks() {
+  const freeBooks = await getFreeBooks();
+  renderBooks(freeBooks);
+}
+
+async function showRecentBooks() {
+  const recentBooks = await getRecentBooks();
+  renderBooks(recentBooks);
 }
 
 // event delegation
@@ -179,12 +195,20 @@ filterBtnContainer.addEventListener("click", (e) => {
     );
     clickedBtn.classList.add("active-filter-btn");
 
-    // sort popular
-    if (clickedBtn.dataset.func === "popularSort") {
-      return popularSort();
+    if (clickedBtn.dataset.func === "recentSort") {
+      return showRecentBooks();
     }
-    // not popular sorting
-    return renderBooks(displayBooks);
+    if (clickedBtn.dataset.func === "popularSort") {
+      return showPopularBooks();
+    }
+    if (clickedBtn.dataset.func === "freeSort") {
+      return showFreeBooks();
+    }
+    if (clickedBtn.dataset.func === "all") {
+      return showDefaultBooks();
+    }
+
+    return showDefaultBooks();
   }
   return {};
 });
@@ -194,6 +218,7 @@ searchFilter.addEventListener("input", searchBook);
 addBookBtn.addEventListener("click", showModal);
 closeModalBtn.addEventListener("click", closeModal);
 overlay.addEventListener("click", closeModal);
-// popularSortBtn.addEventListener('click', popularSort);
+// popularSortBtn.addEventListener("click", popularSort);
 
 getBooks().then((res) => renderBooks(res));
+console.log(displayBooks);

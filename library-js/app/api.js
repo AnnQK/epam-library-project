@@ -1,4 +1,4 @@
-const BASE_URL = "https://gutendex.com/";
+const BASE_URL = "https://gutendex.com";
 
 export async function getBooks() {
   try {
@@ -22,13 +22,20 @@ export async function searchBooks(searchValue) {
   }
 }
 
-export async function sortBooks(sortType = "") {
-  let option;
-  if (sortType) {
-    option = `=${sortType}`;
-  }
+export async function getPopularBooks() {
   try {
-    const response = await fetch(`${BASE_URL}/books?sort${option}`);
+    const response = await fetch(`${BASE_URL}/books?sort=ascending`);
+    const data = await response.json();
+    const books = data.results;
+    return books;
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+export async function getRecentBooks() {
+  try {
+    const response = await fetch(`${BASE_URL}/books?author_year_start=1970`);
     const data = await response.json();
     const books = data.results;
     return books;
@@ -39,7 +46,7 @@ export async function sortBooks(sortType = "") {
 
 export async function getFreeBooks() {
   try {
-    const response = await fetch(`${BASE_URL}/books?copyright=false`);
+    const response = await fetch(`${BASE_URL}/books?copyright=true`);
     const data = await response.json();
     const books = data.results;
     return books;
