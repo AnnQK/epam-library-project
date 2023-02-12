@@ -93,7 +93,7 @@ function renderBooks(booksArr) {
       <div class="image-box">
       <img src="${book.formats["image/jpeg"]}" alt="${book.title}" class="book-container__image" /></div>
       <h3 class="book-container__title">${book.title}</h3>
-      <h4 class="book-container__author">${book.authors[0].name}</h4>
+      <h4 class="book-container__author">${book.authors[0]?.name}</h4>
       <div class="book-container__stats" data-raiting="${book.raiting}">
         <svg id="" class="svg-logo stats-star">
           <use href="#star" class="raiting-btn"></use>
@@ -218,7 +218,5 @@ searchFilter.addEventListener("input", searchBook);
 addBookBtn.addEventListener("click", showModal);
 closeModalBtn.addEventListener("click", closeModal);
 overlay.addEventListener("click", closeModal);
-// popularSortBtn.addEventListener("click", popularSort);
 
 getBooks().then((res) => renderBooks(res));
-console.log(displayBooks);
