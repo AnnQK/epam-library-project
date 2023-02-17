@@ -1,0 +1,40 @@
+.footer {
+    width: 100%;
+    height: 45px;
+    background-color: #171d2b;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-help,
+.btn-settings {
+    margin: 0;
+    height: 45px;
+    width: 55px;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-help {
+    background-color: #1f2537;
+
+    &:hover #footer-help {
+        fill: #15a3f9;
+    }
+}
+
+.btn-settings {
+    background-color: #15a3f9;
+
+    &:hover #footer-settings {
+        fill: #1f2537;
+    }
+
+}
+
+#footer-help {
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+    transition: 400ms;
+}

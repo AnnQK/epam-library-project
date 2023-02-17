@@ -1,3 +1,28 @@
+.add-book-btn {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 160px;
+  height: 45px;
+  background-color: #f1795a;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 700;
+  font-family: "Proxima Nove Regular";
+  font-size: 13px;
+  transition: 300ms;
+}
+
+.add-book-btn:hover {
+  background-color: #c26148;
+}
+
+
 .hidden {
   display: none;
 }
@@ -18,11 +43,13 @@
 }
 
 .modal {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
-  width: 500px;
-  height: 500px;
+  height: fit-content;
+  width: calc(100% - 40px);
+  max-width: 500px;
+  min-height: 500px;
   background-color: #edf1f7;
   transform: translate(-50%, -50%);
   font-family: "Proxima Nove Regular";
@@ -38,9 +65,11 @@
   }
 
   &__btn-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
     width: 50px;
     height: 50px;
-    margin: 5px 0 0 450px;
     background-color: transparent;
     border: none;
     border-radius: 15px;
@@ -57,15 +86,18 @@
 
   &__form {
     margin: 0 auto;
-    width: 70%;
+    width: calc(100% - 100px);
+    height: 100%;
     display: flex;
     flex-direction: column;
+    gap: 20px;
 
     &__input {
       margin-bottom: 15px;
       padding: 5px;
       border-radius: 15px;
       border: 1px solid #78829d;
+      width: 100%;
 
       &:focus {
         outline-color: #15a3f9;
@@ -79,25 +111,30 @@
     }
 
     &-label {
-      padding-left: 5px;
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      flex-direction: column;
+      font-size: 18px;
     }
+  }
 
-    &__btn-submit {
-      margin: 0 auto;
-      font-family: "Proxima Nove Regular";
-      color: #78829d;
-      background-color: #1f2537;
-      border-radius: 5px;
-      width: 120px;
-      height: 30px;
-      border: none;
-      cursor: pointer;
-      transition: 300ms;
+  &__btn-submit {
+    margin: 0 auto;
+    font-family: "Proxima Nove Regular";
+    font-size: 18px;
+    color: #78829d;
+    background-color: #1f2537;
+    border-radius: 5px;
+    width: 150px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    transition: 300ms;
 
-      &:hover {
-        background-color: #15a3f9;
-        color: #fff;
-      }
+    &:hover {
+      background-color: #15a3f9;
+      color: #fff;
     }
   }
 }

@@ -1,5 +1,8 @@
 @import './components/modal';
 @import './components/header';
+@import './components/footer';
+@import './components/filters-sorts';
+@import './components/books-section';
 
 @font-face {
   font-family: "Font awesome";
@@ -30,10 +33,6 @@ body {
   font-size: 13px;
   font-family: "Proxima Nove Regular";
 }
-
-/* MODAL ADD BOOK */
-
-/* HEADER */
 
 /* MAIN */
 
@@ -68,30 +67,6 @@ body {
   right: 0px;
   bottom: -1px;
   background-color: #171d2b;
-}
-
-.add-book-btn {
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  width: 160px;
-  height: 45px;
-  background-color: #f1795a;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  text-transform: uppercase;
-  color: #fff;
-  font-weight: 700;
-  font-family: "Proxima Nove Regular";
-  font-size: 13px;
-  transition: 300ms;
-}
-
-.add-book-btn:hover {
-  background-color: #c26148;
 }
 
 .aside__categories-navigation {
@@ -308,216 +283,4 @@ body {
 .svg-none {
   width: 10px;
   height: 10px;
-}
-
-/* MAIN BOOKS SECTION */
-
-.main__section {
-  flex-grow: 1;
-}
-
-.section__category-title {
-  padding: 25px 0 0 20px;
-  height: 70px;
-  color: #444c63;
-  font-size: 22px;
-  border-bottom: 1px solid #d9dfe9;
-  background-color: #edf1f7;
-}
-
-.section__get-info {
-  padding: 1px 25px 0 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 50px;
-  border-bottom: 1px solid #d9dfe9;
-  background-color: #edf1f7;
-}
-
-.filter-btns {
-  display: flex;
-  gap: 5px;
-}
-
-.filter-btn {
-  padding: 3px 10px 3px 12px;
-  border: none;
-  background-color: transparent;
-  color: #78829d;
-  font-family: "Proxima Nove Regular";
-  font-size: 12px;
-  cursor: pointer;
-  transition: 300ms;
-}
-
-.filter-btn:hover {
-  color: #fff;
-  background-color: #97b3cd;
-  border-radius: 15px;
-}
-
-.active-filter-btn {
-  background-color: #97b3cd;
-  color: #fff;
-  border-radius: 15px;
-}
-
-.input-keywords {
-  padding: 5px 30px 5px 17px;
-  background: url("../assets/images/img/search.png");
-  background-size: 15px;
-  background-position: bottom 5px right 14px;
-  background-repeat: no-repeat;
-  width: 400px;
-  border-radius: 15px;
-  border: 1px solid #78829d;
-}
-
-.input-keywords::placeholder {
-  color: #8c97b2;
-  font-family: "Proxima Nove Regular";
-  font-size: 13px;
-}
-
-.input-keywords:focus {
-  outline-color: #15a3f9;
-}
-
-.section__books {
-  width: calc(100vw - 250px);
-  margin: 0 auto;
-  padding: 30px 100px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  row-gap: 30px;
-  column-gap: 20px;
-  flex-wrap: wrap;
-  background-color: #fff;
-}
-
-.book-container {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
-  width: 200px;
-  height: 350px;
-}
-
-.image-box {
-  margin: 0;
-  padding: 0;
-  height: 275px;
-  width: 200px;
-}
-
-.book-container__image {
-  height: 275px;
-  width: 200px;
-  object-fit: cover;
-  border-radius: 5px;
-}
-
-.book-container__title {
-  padding-top: 0px;
-  height: 20px;
-  width: 200px;
-  overflow-y: hidden;
-  overflow-x: visible;
-  font-family: "Proxima Nove Regular";
-  font-size: 16px;
-  color: #444c63;
-  transition: 300ms;
-}
-
-.book-container__author {
-  padding-top: 2px;
-  height: 25px;
-  width: 200px;
-  overflow: hidden;
-  font-family: "Proxima Nove Regular";
-  color: #6f7d95;
-  font-size: 12px;
-}
-
-.book-container__stats {
-  display: flex;
-  height: 15px;
-  transition: 200ms;
-}
-
-.book-container__stats:hover .stats-star {
-  opacity: 1;
-}
-
-.stats-star {
-  width: 15px;
-  height: 15px;
-  fill: #ffab00;
-  opacity: 0.3;
-  cursor: pointer;
-}
-
-.stats-star:hover {
-  fill: #ffab00;
-  opacity: 1;
-}
-
-.stats-star:hover~.stats-star {
-  fill: #ffab00;
-  opacity: 0.3;
-}
-
-.active-raiting-btn {
-  fill: #ffab00;
-  opacity: 1;
-}
-
-.disable-stars {
-  pointer-events: none;
-}
-
-/* FOOTER */
-
-.footer {
-  width: 100%;
-  height: 45px;
-  background-color: #171d2b;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.btn-help,
-.btn-settings {
-  margin: 0;
-  height: 45px;
-  width: 55px;
-  cursor: pointer;
-  border: none;
-}
-
-.btn-help {
-  background-color: #1f2537;
-}
-
-.btn-settings {
-  background-color: #15a3f9;
-}
-
-.btn-settings:hover #footer-settings {
-  fill: #1f2537;
-}
-
-.btn-help:hover #footer-help {
-  fill: #15a3f9;
-}
-
-#footer-help {
-  width: 20px;
-  height: 20px;
-  fill: #fff;
-  transition: 400ms;
 }

@@ -1,0 +1,58 @@
+.section__get-info {
+    padding: 1px 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    border-bottom: 1px solid #d9dfe9;
+    background-color: #edf1f7;
+}
+
+.filter-btns {
+    display: flex;
+    gap: 5px;
+}
+
+.filter-btn {
+    padding: 3px 10px;
+    border: none;
+    background-color: transparent;
+    color: #78829d;
+    font-family: "Proxima Nove Regular";
+    font-size: 12px;
+    cursor: pointer;
+    transition: 300ms;
+
+    &:hover {
+        color: #fff;
+        background-color: #97b3cd;
+        border-radius: 15px;
+    }
+
+    &.active-filter-btn {
+        background-color: #97b3cd;
+        color: #fff;
+        border-radius: 15px;
+    }
+}
+
+.input-keywords {
+    padding: 5px 20px 5px 15px;
+    background: url("../assets/images/img/search.png");
+    background-size: 15px;
+    background-position: bottom 5px right 14px;
+    background-repeat: no-repeat;
+    width: clamp(150px, 20.8vw, 400px);
+    border-radius: 15px;
+    border: 1px solid #78829d;
+
+    &::placeholder {
+        color: #8c97b2;
+        font-family: "Proxima Nove Regular";
+        font-size: 13px;
+    }
+
+    &:focus {
+        outline-color: #15a3f9;
+    }
+}
