@@ -20,17 +20,11 @@ const filterBtnContainer = document.querySelector(".filter-btns");
 // books on display
 let displayBooks = [];
 
-// WORK WITH API
-
-function prepareBooks(booksArr) {
-  return booksArr.map((book) => ({
-    title: book.title,
-    author: book.author,
-    image: book.imgUrl,
-    raiting: book.review.split(" ").join("")[0],
-  }));
-}
-
+const prepareBooks = (books) => {
+  displayBooks = books;
+  renderBooks(displayBooks);
+  console.log(displayBooks);
+};
 // RATING STARS
 
 function raiting(e) {
@@ -84,7 +78,6 @@ function renderRaiting() {
 
 // creating a container for every book
 function renderBooks(booksArr) {
-  console.log(booksArr);
   booksContainer.innerHTML = "";
   booksArr.map((book) =>
     booksContainer.insertAdjacentHTML(
@@ -119,6 +112,8 @@ function renderBooks(booksArr) {
 // MODAL ADD BOOK
 
 function showModal() {
+  inputBookAuthor.value = "";
+  inputBookTitle.value = "";
   modal.classList.remove("hidden");
   overlay.classList.remove("hidden");
   document.body.classList.add("stop-scroll");
@@ -140,49 +135,49 @@ function addBookInfo(e) {
       : URL.createObjectURL(uploadImage);
   const addedBook = {
     title: inputBookTitle.value,
-    author: inputBookAuthor.value,
-    image: imageURL,
+    authors: [{ name: inputBookAuthor.value }],
+    formats: { "image/jpeg": imageURL },
   };
-  inputBookAuthor.value = "";
-  inputBookTitle.value = "";
-  displayBooks.push(addedBook);
-  renderBooks(displayBooks);
+  prepareBooks([...displayBooks, addedBook]);
   closeModal();
 }
 
 // SEARCH BAR
 
 function searchBook(e) {
+  const isEmplty = e.target.value.trim().lenght === 0;
+  if (isEmplty) {
+    prepareBooks(displayBooks);
+    return;
+  }
   const searchValue = e.target.value.toLowerCase();
   const filteredBooks = displayBooks.filter(
     (item) =>
       item.title.toLowerCase().includes(searchValue) ||
-      item.author.toLowerCase().includes(searchValue)
+      item.authors[0].name.toLowerCase().includes(searchValue)
   );
   renderBooks(filteredBooks);
 }
 
-// SORTING BOOKS
-// sorting popular
-
+// FETCHING BOOKS
 async function showDefaultBooks() {
   const defaultBooks = await getBooks();
-  renderBooks(defaultBooks);
+  prepareBooks(defaultBooks);
 }
 
 async function showPopularBooks() {
   const popularBooks = await getPopularBooks();
-  renderBooks(popularBooks);
+  prepareBooks(popularBooks);
 }
 
 async function showFreeBooks() {
   const freeBooks = await getFreeBooks();
-  renderBooks(freeBooks);
+  prepareBooks(freeBooks);
 }
 
 async function showRecentBooks() {
   const recentBooks = await getRecentBooks();
-  renderBooks(recentBooks);
+  prepareBooks(recentBooks);
 }
 
 // event delegation
@@ -219,4 +214,4 @@ addBookBtn.addEventListener("click", showModal);
 closeModalBtn.addEventListener("click", closeModal);
 overlay.addEventListener("click", closeModal);
 
-getBooks().then((res) => renderBooks(res));
+getBooks().then((res) => prepareBooks(res));
